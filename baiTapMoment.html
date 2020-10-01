@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Internet và www</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+<script type="text/javascript">
+	var time1 = new Date("2019-09-24 09:12:26");
+	var time2 = new Date("2020-10-24 10:12:23");
+	var hms = moment.utc(moment(time2,"YYYY-MM-DD HH:mm:ss").diff(moment(time1,"YYYY-MM-DD HH:mm:ss"))).format("HH:mm:ss");
+  	
+  	var dateTime1 = time1.getDate();
+  	var dateTime2 = time2.getDate();
+
+  	var monthTime1 = time1.getMonth();
+  	var monthTime2 = time2.getMonth();
+
+  	var yearTime1 = time1.getFullYear();
+  	var yearTime2 = time2.getFullYear();
+
+  	var date, month, year;
+
+  	if(dateTime2 >= dateTime1 ){
+  		date = dateTime2 - dateTime1;
+  		if(monthTime2 >= monthTime1){
+  			month = monthTime2 - monthTime1;
+  			year = yearTime2 -yearTime1;
+  		}
+  		else{
+  			year = yearTime2 - yearTime1 - 1;
+  		}
+  	}
+  	else {
+  		date = dateTime2 - dateTime1 + 60;
+  		if(monthTime2 - monthTime1 - 1 >= 0){
+  			month = monthTime2 - monthTime1 -1;
+  			year = yearTime2 -yearTime1;
+  		}
+  		else{
+  			month = monthTime2 - monthTime1 -1 + 12;
+  			year = yearTime2 - yearTime1 - 1;
+  		}
+  	}
+  	console.log("Thoi gian chenh lech la : "+year+"-"+month+"-"+date +" "+ hms);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
