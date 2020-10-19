@@ -1,0 +1,41 @@
+@width-container: 340px;
+*{
+  font-family: Arial;
+}
+#container{
+  width: @width-container;
+  min-height: 100px;
+  margin: 0px auto;
+  padding-top: 20px;
+}
+
+#_todo{
+  width: @width-container - 15px;
+  padding-left: 15px;
+}
+.items {
+  display: flex;
+  justify-content: space-between;
+}
+.itemLabel{
+  padding-left: 24px;
+}
+.itemEditing{
+  margin-left: 24px;
+}
+.removeItem:hover{
+  cursor: pointer;
+}
+#extra-container{
+  width: @width-container;
+  padding-bottom: 0px;
+  border: 0.8px solid grey;
+  margin: 0px auto;
+}
+.complete {
+  text-decoration: line-through;
+  color: grey;
+}
+.checkItem{
+  position: absolute;
+}

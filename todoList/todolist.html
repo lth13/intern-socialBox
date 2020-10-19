@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+          integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+          crossorigin="anonymous" />
+</head>
+<body>
+<div id="container">
+    <input id="_todo" type="text" placeholder="what needs to be done?" v-model="todo" @keyup.enter="addTodo()">
+    <div v-for="(item, index) in listTodo"><br>
+        <div class="items" :key="item.id">
+            <input type="checkbox" class="checkItem" v-model="item.complete" @change="enter(item)">
+            <div v-if="!item.editing" class="itemLabel" :class="{complete: item.complete}"
+                 @dblclick="editItem(item)">{{item.content}}</div>
+            <input v-else class="itemEditing" type="text" v-model="item.content" @keyup.enter="doneEdit(item)"
+            @blur="doneEdit(item)" v-focus @keyup="render(item)">
+            <div class="removeItem" @click="removeItem(index)">&times;</div>
+        </div>
+    </div>
+</div>
+<div id="extra-container">
+</div>
+</body>
+</html>
+<script src="vue.js"></script>

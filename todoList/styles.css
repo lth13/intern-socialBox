@@ -1,0 +1,39 @@
+* {
+  font-family: Arial;
+}
+#container {
+  width: 340px;
+  min-height: 100px;
+  margin: 0px auto;
+  padding-top: 20px;
+}
+#_todo {
+  width: 325px;
+  padding-left: 15px;
+}
+.items {
+  display: flex;
+  justify-content: space-between;
+}
+.itemLabel {
+  padding-left: 24px;
+}
+.itemEditing {
+  margin-left: 24px;
+}
+.removeItem:hover {
+  cursor: pointer;
+}
+#extra-container {
+  width: 340px;
+  padding-bottom: 0px;
+  border: 0.8px solid grey;
+  margin: 0px auto;
+}
+.complete {
+  text-decoration: line-through;
+  color: grey;
+}
+.checkItem {
+  position: absolute;
+}
