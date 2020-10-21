@@ -9,20 +9,28 @@
           crossorigin="anonymous" />
 </head>
 <body>
-<div id="container">
-    <input id="_todo" type="text" placeholder="what needs to be done?" v-model="todo" @keyup.enter="addTodo()">
-    <div v-for="(item, index) in listTodo"><br>
-        <div class="items" :key="item.id">
-            <input type="checkbox" class="checkItem" v-model="item.complete" @change="enter(item)">
-            <div v-if="!item.editing" class="itemLabel" :class="{complete: item.complete}"
-                 @dblclick="editItem(item)">{{item.content}}</div>
-            <input v-else class="itemEditing" type="text" v-model="item.content" @keyup.enter="doneEdit(item)"
-            @blur="doneEdit(item)" v-focus @keyup="render(item)">
-            <div class="removeItem" @click="removeItem(index)">&times;</div>
+<div id="big-container">
+    <div id="container">
+        <input id="_todo" type="text" placeholder="what needs to be done?" v-model="todo" @keyup.enter="addTodo()">
+        <div v-for="(item, index) in listTodo"><br>
+            <div class="items" :key="item.id">
+                <input type="checkbox" class="checkItem" v-model="item.complete" @change="enter(item)">
+                <div v-if="!item.editing" class="itemLabel" :class="{complete: item.complete}"
+                     @dblclick="editItem(item)">{{item.content}}</div>
+                <input v-else class="itemEditing" type="text" v-model="item.content" @keyup.enter="doneEdit(item)"
+                @blur="doneEdit(item)" v-focus @keyup="render(item)">
+                <div class="removeItem" @click="removeItem(index)">&times;</div>
+            </div>
+        </div>
+        <div id="extra-container">
+            <input type="checkbox"  @change="checkedAll()">
+            <div id="cheackAll">Check all</div>
+            <button id="all" @click="allTodo()">All</button>
+            <button id="completed" @click="completedTodo()">Completed</button>
+            <button id="incomplete" @click="incompleteTodo()">Incomplete</button>
+            <button id="clear" @click="deletedTodo()">Clear</button>
         </div>
     </div>
-</div>
-<div id="extra-container">
 </div>
 </body>
 </html>

@@ -2,10 +2,19 @@
 *{
   font-family: Arial;
 }
+#big-container{
+  width: @width-container + 30px;
+  min-height: 120px;
+  margin: 0px auto;
+  margin-top: 90px;
+  display: flex;
+  justify-content:center;
+  border: 0.8px solid darkgrey;
+  box-shadow: 5px 5px 10px 10px gainsboro;
+}
 #container{
   width: @width-container;
   min-height: 100px;
-  margin: 0px auto;
   padding-top: 20px;
 }
 
@@ -29,8 +38,9 @@
 #extra-container{
   width: @width-container;
   padding-bottom: 0px;
-  border: 0.8px solid grey;
+  border-top: 0.8px solid grey;
   margin: 0px auto;
+  height: 35px;
 }
 .complete {
   text-decoration: line-through;
@@ -38,4 +48,17 @@
 }
 .checkItem{
   position: absolute;
+}
+#extra-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button{
+    height: 23px;
+    font-size: 11px;
+  }
+}
+#cheackAll{
+  width: 90px;
+  font-size: 12px;
 }

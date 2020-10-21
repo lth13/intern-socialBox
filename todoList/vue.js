@@ -2,7 +2,7 @@ var vm = new Vue({
     el: '#container',
     data:{
         todo: '',
-        id: 3,
+        id: 1,
         listTodo: JSON.parse(localStorage.getItem('todo')),
         beforeEdit: '',
         todoList: []
@@ -67,6 +67,33 @@ var vm = new Vue({
             })
             localStorage.setItem('todo', JSON.stringify(this.listTodo))
             this.listTodo = JSON.parse(localStorage.getItem('todo'))
+        },
+        checkedAll(){
+            this.listTodo.forEach(function(x) {
+                x.complete = true
+            })
+            localStorage.setItem('todo', JSON.stringify(this.listTodo))
+            this.listTodo = JSON.parse(localStorage.getItem('todo'))
+        },
+        allTodo(){
+            this.listTodo = JSON.parse(localStorage.getItem('todo'))
+        },
+        completedTodo(){
+            this.listTodo = JSON.parse(localStorage.getItem('todo'))
+            localStorage.setItem('todoTemp', JSON.stringify(this.listTodo.filter(x=>x.complete==true)))
+
+            this.listTodo = JSON.parse(localStorage.getItem('todoTemp'))
+        },
+        incompleteTodo(){
+            this.listTodo = JSON.parse(localStorage.getItem('todo'))
+            localStorage.setItem('todoTemp', JSON.stringify(this.listTodo.filter(x=>x.complete==false)))
+            this.listTodo = JSON.parse(localStorage.getItem('todoTemp'))
+        },
+        deletedTodo(){
+            this.listTodo = JSON.parse(localStorage.getItem('todo'))
+            localStorage.setItem('todo', JSON.stringify(this.listTodo.filter(x=>x.complete==false)))
+            this.listTodo = JSON.parse(localStorage.getItem('todo'))
         }
     }
+
 })
