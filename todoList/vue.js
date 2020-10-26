@@ -44,8 +44,10 @@ var vm = new Vue({
                     todo.content = item.content
                 }
             })
+
         },
         removeItem(index){
+            this.todoList = JSON.parse(localStorage.getItem('todo'))
             this.todoList.splice(index, 1)
             localStorage.setItem('todo', JSON.stringify(this.todoList))
             this.listTodo = JSON.parse(localStorage.getItem('todo'))
