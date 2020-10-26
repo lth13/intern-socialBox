@@ -71,10 +71,20 @@ var vm = new Vue({
             this.listTodo = JSON.parse(localStorage.getItem('todo'))
         },
         checkedAll(){
-            this.listTodo.forEach(function(x) {
-                x.complete = true
-            })
-            localStorage.setItem('todo', JSON.stringify(this.listTodo))
+            var tempList = JSON.parse(localStorage.getItem('todo'))
+            var dem = 0
+            for (let i=0; i<tempList.length; i++){
+                if(tempList[i].complete)
+                    dem++
+            }
+            //console.log(tempList.length)
+            if(dem == tempList.length){
+                tempList.filter(item => item.complete= false)
+            }
+            else {
+                tempList.filter(item => item.complete = true)
+            }
+            localStorage.setItem('todo', JSON.stringify(tempList))
             this.listTodo = JSON.parse(localStorage.getItem('todo'))
         },
         allTodo(){
@@ -97,5 +107,4 @@ var vm = new Vue({
             this.listTodo = JSON.parse(localStorage.getItem('todo'))
         }
     }
-
 })
