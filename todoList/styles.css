@@ -3,7 +3,7 @@
 }
 #big-container {
   width: 370px;
-  min-height: 120px;
+  min-height: 110px;
   margin: 0px auto;
   margin-top: 90px;
   display: flex;
@@ -13,7 +13,7 @@
 }
 #container {
   width: 340px;
-  min-height: 100px;
+  min-height: 90px;
   padding-top: 20px;
 }
 #_todo {
@@ -35,10 +35,9 @@
 }
 #extra-container {
   width: 340px;
-  padding-bottom: 0px;
   border-top: 0.8px solid grey;
-  margin: 0px auto;
   height: 35px;
+  margin-top: 20px;
 }
 .complete {
   text-decoration: line-through;
